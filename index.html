@@ -3,119 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloque Responsivo Pro</title>
+    
+    <title>Bloque Interactivo Adaptable</title>
+    <meta property="og:title" content="Contenido Interactivo">
+    <meta property="og:description" content="Bloque de texto responsivo para integración en plataformas externas.">
+    <meta property="og:type" content="website">
+
     <style>
-        /* 1. RESET Y CONFIGURACIÓN BASE */
-        *, *::before, *::after {
+        /* CONFIGURACIÓN GLOBAL */
+        * {
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
-        html, body {
+        body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f9f9f9; /* Color de fondo opcional */
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* 2. CONTENEDOR DE CENTRADO (Viewport) */
-        .contenedor-principal {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: transparent; /* Permite que se vea el fondo de Canva si es necesario */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            width: 100%;
-            padding: 20px;
+            overflow: hidden; /* Evita scrolls dobles en Canva */
         }
 
-        /* 3. CAJA DE TEXTO (El bloque adaptable) */
-        .bloque-contenido {
-            width: 100%;
-            max-width: 850px;
-            background: #ffffff; /* Fondo blanco para destacar el texto */
-            padding: clamp(1.5rem, 5vw, 3rem);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra sutil */
-            
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+        /* CONTENEDOR DINÁMICO */
+        .card {
+            width: 90%;
+            max-width: 600px;
+            padding: clamp(20px, 5vw, 40px);
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        /* 4. TIPOGRAFÍA FLUIDA (Clamp: Min, Ideal, Max) */
+        /* TIPOGRAFÍA */
         h1 {
-            margin: 0;
-            color: #1a1a1a;
-            font-size: clamp(1.8rem, 6vw, 3.2rem);
-            line-height: 1.1;
-            font-weight: 800;
-        }
-
-        h2 {
-            margin: 0;
-            color: #4a4a4a;
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            font-weight: 400;
+            font-size: clamp(1.5rem, 7vw, 2.5rem);
+            color: #111;
+            margin-bottom: 0.5em;
+            line-height: 1.2;
         }
 
         p {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: #444;
+            line-height: 1.5;
             margin: 0;
-            font-size: clamp(1rem, 3vw, 1.15rem);
-            color: #555;
-            /* Evita que palabras muy largas rompan el diseño en móvil */
-            overflow-wrap: break-word;
-            word-wrap: break-word;
         }
 
-        /* 5. AJUSTES FINOS PARA DISPOSITIVOS ESPECÍFICOS */
-        
-        /* Ajuste para móviles pequeños */
-        @media (max-width: 480px) {
-            .contenedor-principal {
-                align-items: flex-start; /* Empieza arriba para no "flotar" en el vacío */
-                padding-top: 40px;
-            }
-            
-            .bloque-contenido {
-                padding: 1.5rem;
-                border-radius: 0; /* Opcional: ocupa todo el ancho visual */
-                box-shadow: none; /* Simplifica la carga visual */
-                background: transparent;
-            }
-        }
-
-        /* Ajuste para modo oscuro (opcional, muy profesional) */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #eee; }
-            .bloque-contenido { background-color: #1e1e1e; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-            h1 { color: #fff; }
-            h2 { color: #bbb; }
-            p { color: #ccc; }
+        /* EFECTO PARA CANVA (Opcional) */
+        .card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
 
-    <main class="contenedor-principal">
-        <article class="bloque-contenido">
-            <h1>Título Principal</h1>
-            <h2>Subtítulo adaptable y elegante</h2>
-            <p>
-                Este bloque utiliza <strong>CSS moderno</strong> para garantizar que el contenido 
-                se vea perfecto tanto en una pantalla 4K como en un smartphone antiguo. 
-                Gracias al uso de <code>clamp()</code> y <code>flexbox</code>, no necesitas 
-                ajustar manualmente cada tamaño de pantalla.
-            </p>
-            <p>
-                Es ideal para incrustaciones en <em>Genially</em>, <em>Moodle</em> o cualquier 
-                plataforma que utilice iframes, ya que se expande orgánicamente según el espacio disponible.
-            </p>
-        </article>
-    </main>
+    <div class="card">
+        <h1>¡Funciona!</h1>
+        <p>
+            Este bloque es <strong>ultra-responsivo</strong>. 
+            Si lo haces pequeño en Canva, el texto se ajustará solo. 
+            Si lo estiras, se verá como una tarjeta profesional.
+        </p>
+    </div>
 
 </body>
 </html>
